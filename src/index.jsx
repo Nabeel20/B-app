@@ -47,6 +47,7 @@ async function read() {
   let blsm_json = await fs.readFile(path, 'utf-8');
   let de = crypto.AES.decrypt(blsm_json, 'Nabeel Adnan Ali Nizam, Mom I love you').toString(crypto.enc.Utf8);
   db = JSON.parse(de);
+  $(NavigationView).only().children().dispose()
   $(NavigationView).only().append(<Home />)
 }
 
@@ -54,6 +55,7 @@ async function read() {
 contentView.append(
   <$>
     <NavigationView stretch toolbarVisible={false}>
+      <Home />
     </NavigationView>
   </$>
 );
@@ -584,7 +586,7 @@ function Activate() {
       output.push(
         <Composite stretchX background='#D7D8D2' cornerRadius={15} padding={16} >
           <TextView right text={file.subject} font='bold 20px dubai' />
-          <TextView left text={file.ID} font='bold 20px dubai' onTap={() => { share(file) }} />
+          <Button baseline='prev()' left style='elevate' background={brand} text={file.ID} font='bold 18px dubai' onSelect={() => { share(file) }} />
           <TextInput keyboard='number' stretch top='prev() 15' message='أدخل المفتاح' style='underline' onAccept={(ev) => handle_accept(ev, file.ID, file.code)} />
         </Composite>
       )
@@ -657,6 +659,7 @@ function Activate() {
     </Page>
   )
 }
+
 function cal_achivement() {
   let num_total = [];
   let num_solved = [];
