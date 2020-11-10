@@ -8,7 +8,8 @@
     Balsam Dev
   </author>
   <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />
-  <preference name="android-minSdkVersion" value="21"/>
+  <preference name="android-minSdkVersion" value="22"/>
+  <preference name="Orientation" value="portrait" />
   <platform name="android">
        <preference name="SplashMaintainAspectRatio" value="true"/>
        <icon density="ldpi" src="res/icon/ldpi.png"/>
