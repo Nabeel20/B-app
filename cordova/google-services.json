@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "269170756591",
+    "firebase_url": "https://balsam---app.firebaseio.com",
+    "project_id": "balsam---app",
+    "storage_bucket": "balsam---app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269170756591:android:07ec6757cf1e54b966c41a",
+        "android_client_info": {
+          "package_name": "com.quiz.balsam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269170756591-9vp73uqhsslq628q6aiepr546ksdcbk5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcqZ-SW3W7m8Ta3Btj5Bilj8aM6dbS51w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269170756591-9vp73uqhsslq628q6aiepr546ksdcbk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

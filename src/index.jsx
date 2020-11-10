@@ -4,7 +4,7 @@ import * as crypto from "crypto-js"
 const Hashids = require('hashids/cjs');
 const hash = new Hashids("nabeel adnan ali nizam", 12, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789")
 
-
+firebase.Analytics.analyticsCollectionEnabled = true;
 app.idleTimeoutEnabled = false;
 app.registerFont('dubai', 'resoruces/Cairo.TTF');
 
@@ -571,6 +571,7 @@ function Exam(file) {
 function go_to_exam(file) {
   let nav = $(NavigationView).only();
   nav.append(<Exam data={file} />)
+  firebase.Analytics.logEvent('go_to_exam', { description: 'المستخدم توجه لصفحة الامتحانات' });
 }
 
 function go_to_active(file) {
@@ -617,6 +618,7 @@ function Activate() {
         db.filter(file => file.code == CODE).forEach(f => f.paid = false);
         write()
         show_snackbar('تم التفعيل بنجاح', success, '😃');
+        firebase.Analytics.logEvent('activate_bank', { description: `قام المستخدم بتفعيل بنك ${CODE}` });
         // go_home()
       } else {
         show_snackbar('المفتاح غير مناسب', error, '😐')
