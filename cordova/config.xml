@@ -3,6 +3,7 @@
    <name>Balsam</name>
    <description>Balsam app for students</description>
    <author email="Balsam_app_contact@gmail.com">Balsam Dev</author>
+   <plugin name="tabris-plugin-firebase" spec="https://github.com/eclipsesource/tabris-plugin-firebase.git" />
    <platform name="android">
       <preference name="SplashMaintainAspectRatio" value="true" />
       <preference name="SplashScreenDelay" value="1500" />
