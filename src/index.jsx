@@ -495,7 +495,7 @@ function Exam(file) {
     let ratio = Math.round((100 * right) / length);
     let output = `لديك ${user_score} سؤال خاطئ من أصل ${length} سؤال`;
     if (user_score == 0) {
-      output = '🎉🎉 مبارك جميع الأسئلة صحيحة'
+      output = '🎉🎉  جميع الأسئلة صحيحة'
     }
     let avarage = info.Accuracy;
     avarage.push(ratio);
@@ -525,7 +525,7 @@ function Exam(file) {
               <span font='20px dubai'>مستوى دقتك:</span> <br />
               <span font='40px'>{`${ratio}%`}</span>
             </TextView>
-            <TextView visible={user_score == 0 ? false : true} right='95%' font='bold 16px dubai' top='prev() 10' textColor={user_score == 0 ? success : error} text={output} />
+            <TextView right='95%' font='bold 16px dubai' top='prev() 10' textColor={user_score == 0 ? success : error} text={output} />
           </Composite>
           <Composite background={secondary} stretchX padding={16} cornerRadius={16}>
             <TextView centerY right markupEnabled >
