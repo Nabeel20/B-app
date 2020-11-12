@@ -419,7 +419,7 @@ function Exam(file) {
 
         $(ProgressBar).set({ state: 'error' });
 
-        if (info.questionlist[score].qexplain.length > 3) {
+        if (info.questionlist[score].qexplain !== '/') {
           $('Footer > #explain').set({ visible: true });
         }
         show_snackbar('جواب خاطئ', error, '💔')
