@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:android="http://schemas.android.com/apk/res/android" id="com.quiz.balsam" version="0.1.0">
+<widget xmlns:android="http://schemas.android.com/apk/res/android" id="com.quiz.balsam" version="0.1.1">
    <name>Balsam</name>
    <description>Balsam app for students</description>
    <author email="Balsam_app_contact@gmail.com">Balsam Dev</author>
