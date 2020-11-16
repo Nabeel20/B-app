@@ -30,10 +30,12 @@
          <activity android:label="webIntentFilter" android:name="com.quiz.balsam">
             <intent-filter android:autoVerify="true">
                <action android:name="android.intent.action.VIEW" />
+               <category android:name="android.intent.category.BROWSABLE"/>
                <category android:name="android.intent.category.DEFAULT" />
                <data android:scheme="file" />
                <data android:host="*" />
                <data android:pathPattern=".*\\.quiz" />
+               <data android:mimeType="application/json" />
             </intent-filter>
          </activity>
       </config-file>
