@@ -28,14 +28,14 @@
       
       <config-file parent="application" target="AndroidManifest.xml">
          <activity android:label="webIntentFilter" android:name="com.quiz.balsam">
-            <intent-filter android:autoVerify="true">
+            <intent-filter android:autoVerify="true" android:label="@string/عرض في بلسم">
                <action android:name="android.intent.action.VIEW" />
                <category android:name="android.intent.category.BROWSABLE"/>
                <category android:name="android.intent.category.DEFAULT" />
                <data android:scheme="file" />
                <data android:host="*" />
                <data android:pathPattern=".*\\.quiz" />
-               <data android:mimeType="application/json" />
+               <data android:mimeType="application/octet-stream" />
             </intent-filter>
          </activity>
       </config-file>
