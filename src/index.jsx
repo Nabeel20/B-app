@@ -4,7 +4,7 @@ import * as crypto from "crypto-js"
 const Hashids = require('hashids/cjs');
 const hash = new Hashids("nabeel adnan ali nizam", 12, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789")
 
-
+firebase.Analytics.analyticsCollectionEnabled = true;
 app.idleTimeoutEnabled = false;
 app.registerFont('cairo', 'resoruces/Cairo.TTF');
 
@@ -268,6 +268,7 @@ function Home() {
           }
           // update the UI and database
           write().then(() => show_snackbar('تمت الإضافة بنجاح', success, '😃'));
+          firebase.Analytics.logEvent('add_file', { description: `قام المستخدم بتفعيل بنك ${CODE}` });
           // write();
           $('Files > #main').only().children().dispose();
           db.forEach(file => $('Files > Stack').only().append(handle_files(file)));
@@ -284,8 +285,10 @@ function Home() {
         } else {
           show_snackbar('الملف موجود سلفاً ', warrning, '😕')
         }
+      } else {
+        show_snackbar('الملف المختار غير مدعوم', error, '😬');
       }
-      show_snackbar('الملف المختار غير مدعوم', error, '😕');
+      
     } catch (error) {
       show_snackbar('لم يتم اختيار ملف', warrning, '😕');
     }
@@ -570,7 +573,8 @@ function Exam(file) {
 
 function go_to_exam(file) {
   let nav = $(NavigationView).only();
-  nav.append(<Exam data={file} />)
+  nav.append(<Exam data={file} />);
+  firebase.Analytics.logEvent('go_to_exam', { description: 'المستخدم توجه لصفحة الامتحانات' });
 }
 
 function go_to_active(file) {
@@ -617,7 +621,7 @@ function Activate() {
         db.filter(file => file.code == CODE).forEach(f => f.paid = false);
         write()
         show_snackbar('تم التفعيل بنجاح', success, '😃');
-        // go_home()
+        firebase.Analytics.logEvent('activated_bank', { description: `قام المستخدم بتفعيل بنك ${CODE}` });
       } else {
         show_snackbar('المفتاح غير مناسب', error, '😐')
       }
