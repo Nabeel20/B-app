@@ -1,4 +1,4 @@
-import { contentView, app, fs, statusBar, navigationBar, TextView, Popover, NavigationView, ProgressBar, Page, Button, Stack, ScrollView, Composite, Row, navigationBar, TextInput } from 'tabris';
+import { contentView, app, fs, statusBar, TextView, Popover, NavigationView, ProgressBar, Page, Button, Stack, ScrollView, Composite, Row, navigationBar, TextInput } from 'tabris';
 import { mean, map, replace, padStart, replcae, find, random, shuffle, uniqBy, findIndex, sum, repeat } from "lodash";
 import * as crypto from "crypto-js"
 const Hashids = require('hashids/cjs');
@@ -45,7 +45,7 @@ async function write() {
 
 async function read() {
   let blsm_json = await fs.readFile(path, 'utf-8');
-  let de = crypto.AES.decrypt(blsm_json, 'Nabeel Adnan Ali Nizam, Mom I love you').toString(crypto.enc.Utf8);
+	let de = crypto.AES.decrypt(blsm_json, 'Nabeel Adnan Ali Nizam, Mom I love you').toString(crypto.enc.Utf8);
   db = JSON.parse(de);
   $(NavigationView).only().children().dispose()
   $(NavigationView).only().append(<Home />)
