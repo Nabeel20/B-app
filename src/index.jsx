@@ -288,7 +288,7 @@ function Home() {
       } else {
         show_snackbar('الملف المختار غير مدعوم', error, '😬');
       }
-      
+
     } catch (error) {
       show_snackbar('لم يتم اختيار ملف', warrning, '😕');
     }
@@ -554,7 +554,6 @@ function Exam(file) {
       onSwipeRight={() => { if (wrong_asnwer) { next_question() } }}
       onSwipeUp={() => { if (wrong_asnwer && info.questionlist[score].qexplain.length > 3) { show_BottomSheet() } }}
       onSwipeDown={() => $(BottomSheet).animate({ opacity: 0, transform: { translationY: +100 } }, { delay: 0, duration: 500, easing: "linear" })}
-      onLongPress={(e) => { if (e.state == 'start') { add_bookmark() } }}
     >
       <ProgressBar tintColor={success} selection={progress_score} stretchX top maximum={info.questionlist.length} />
       <Stack top={30} stretchX padding={16} spacing={10}>
@@ -673,19 +672,19 @@ function cal_achivement() {
 }
 
 
- let HandleIntent = function (Intent) {
-       console.log(intent);
-       // With intent you'll do almost everything        
-  };
-          
-  // Handle the intent when the app is open
-  // If the app is running in the background, this function
-  // will handle the opened file
-  cordova.intent.setNewIntentHandler(HandleIntent);
+let HandleIntent = function (Intent) {
+  console.log(intent);
+  // With intent you'll do almost everything        
+};
 
-  // Handle the intent when the app is not open
-  // This will be executed only when the app starts or wasn't active
-  // in the background
-  cordova.intent.getCordovaIntent(HandleIntent, function () {
-     alert("Error: Cannot handle open with file intent");
-  });
+// Handle the intent when the app is open
+// If the app is running in the background, this function
+// will handle the opened file
+cordova.intent.setNewIntentHandler(HandleIntent);
+
+// Handle the intent when the app is not open
+// This will be executed only when the app starts or wasn't active
+// in the background
+cordova.intent.getCordovaIntent(HandleIntent, function () {
+  alert("Error: Cannot handle open with file intent");
+});
