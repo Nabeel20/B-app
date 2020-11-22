@@ -4,17 +4,17 @@ import * as crypto from "crypto-js"
 const Hashids = require('hashids/cjs');
 const hash = new Hashids("nabeel adnan ali nizam", 12, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789")
 
-firebase.Analytics.analyticsCollectionEnabled = true;
+
 app.idleTimeoutEnabled = false;
-app.registerFont('dubai', 'resoruces/Cairo.TTF');
+app.registerFont('cairo', 'resoruces/Cairo.TTF');
 
 const success = '#00C853'
 const error = '#FF7171'
 const warrning = '#FFA000'
 const brand = '#333431'
 const secondary = '#D7D8D2'
-const font_headline = 'bold 25px dubai';
-const font_body = 'bold 20px dubai ';
+const font_headline = 'bold 25px cairo';
+const font_body = 'bold 20px cairo ';
 
 
 //* theme 
@@ -70,8 +70,8 @@ function Home() {
     }
     return (
       <Composite stretchX >
-        <TextView right centerY markupEnabled font='bold 25px dubai' text='بلسم' />
-        <TextView right='prev() 5' centerY markupEnabled font='bold 16px dubai' text='💊' />
+        <TextView right centerY markupEnabled font='bold 25px cairo' text='بلسم' />
+        <TextView right='prev() 5' centerY markupEnabled font='bold 16px cairo' text='💊' />
 
         <Composite centerY background={success} width={30} height={30} cornerRadius={15} left>
           <TextView id='achive' centerY centerX textColor='white' text={achive} />
@@ -112,14 +112,14 @@ function Home() {
   let Add = () => {
     return (
       <Composite centerX padding={14} cornerRadius={30} background='#333431' bottom={35} elevation={10} highlightOnTouch onTap={() => add_file()} >
-        <TextView id='text' textColor='white' text='إضــافة ملــف +' font='bold 16px dubai' />
+        <TextView id='text' textColor='white' text='إضــافة ملــف +' font='bold 16px cairo' />
       </Composite>)
   }
   let Snackbar = () => {
     return (
-      <Composite right={10} left={10} visible={false} stretchX padding={10} cornerRadius={3} background='#048243' bottom={16} elevation={5}>
-        <TextView id='text' right text='notification' font='bold 16px dubai' />
-        <TextView id='icon' left text='✅' font='bold 16px dubai' />
+      <Composite right={10} left={10} visible={false} stretchX padding={10} cornerRadius={3} background='#048243' bottom={16} elevation={11}>
+        <TextView id='text' right text='notification' font='bold 16px cairo' />
+        <TextView id='icon' left text='✅' font='bold 16px cairo' />
       </Composite>
     )
   }
@@ -167,52 +167,52 @@ function Home() {
           <Popover>
             <Stack centerY stretchX spacing={10} padding={16} onSwipeDown={() => popover.close()}>
               <Stack stretchX>
-                <Button font='bold 14px  dubai' style='flat' background={error} text='حذف الملف' textColor='white' onSelect={() => { delete_file(file.title), popover.close() }} />
+                <Button font='bold 14px  cairo' style='flat' background={error} text='حذف الملف' textColor='white' onSelect={() => { delete_file(file.title), popover.close() }} />
                 <Composite background='#333431' stretchX padding={16} cornerRadius={16}>
-                  <TextView right left={0} top={0} text={file.title} textColor='white' font='bold 22px dubai' />
-                  <TextView right top='prev() 1' textColor='white' text={file.subject} font='16px dubai' />
-                  <TextView visible={file.cycle.length > 3 ? true : false} right='prev() 10' bottom text={`• دورة ${file.cycle}`} textColor={error} font='bold 16px dubai' />
+                  <TextView right left={0} top={0} text={file.title} textColor='white' font='bold 22px cairo' />
+                  <TextView right top='prev() 1' textColor='white' text={file.subject} font='16px cairo' />
+                  <TextView visible={file.cycle.length > 3 ? true : false} right='prev() 10' bottom text={`• دورة ${file.cycle}`} textColor={error} font='bold 16px cairo' />
                 </Composite>
               </Stack>
 
 
               <Composite stretchX background='#F4D7D7' padding={16} cornerRadius={16}>
-                <TextView right text='💯' font='bold 20px dubai' />
-                <TextView right='prev() 3' text='متوسط الدقة' font='bold 20px dubai' />
-                <TextView left='3' text={file.avarageAcc} font='20px dubai' />
+                <TextView right text='💯' font='bold 20px cairo' />
+                <TextView right='prev() 3' text='متوسط الدقة' font='bold 20px cairo' />
+                <TextView left='3' text={file.avarageAcc} font='20px cairo' />
               </Composite>
 
               <Composite stretchX >
                 <Composite left='48%' right={0} background='#7BC8F6' padding={16} cornerRadius={16}>
-                  <TextView right text='📄' font='bold 20px dubai' />
-                  <TextView right='prev() 3' text='عدد الأسئلة' font='bold 20px dubai' />
-                  <TextView top='prev() 2' centerX text={file.questionlist.length} font='20px dubai' />
+                  <TextView right text='📄' font='bold 20px cairo' />
+                  <TextView right='prev() 3' text='عدد الأسئلة' font='bold 20px cairo' />
+                  <TextView top='prev() 2' centerX text={file.questionlist.length} font='20px cairo' />
                 </Composite>
                 <Composite left right='48%' background='#CFFDBC' padding={16} cornerRadius={16}>
-                  <TextView right text='⚡️' font='bold 20px dubai' />
-                  <TextView right='prev() 3' text='عدد المرات' font='bold 20px dubai' />
-                  <TextView top='prev() 2' centerX text={file.numOfQuiz} font='20px dubai' />
+                  <TextView right text='⚡️' font='bold 20px cairo' />
+                  <TextView right='prev() 3' text='عدد المرات' font='bold 20px cairo' />
+                  <TextView top='prev() 2' centerX text={file.numOfQuiz} font='20px cairo' />
                 </Composite>
               </Composite>
 
               <Composite stretchX padding={18} cornerRadius={16} highlightOnTouch background={file.paid ? error : success} onTap={() => { file.paid ? go_to_active() : go_to_exam(file), popover.close() }}>
-                <TextView centerX centerY text={file.paid ? 'تفعيل البنك' : 'خوض الامتحان'} font='bold 20px dubai' />
+                <TextView centerX centerY text={file.paid ? 'تفعيل البنك' : 'خوض الامتحان'} font='bold 20px cairo' />
               </Composite>
             </Stack>
-            <TextView bottom={5} centerX text='للإغلاق اسحب للأسفل' font='14px dubai' textColor='#616161' />
+            <TextView bottom={5} centerX text='للإغلاق اسحب للأسفل' font='14px cairo' textColor='#616161' />
           </Popover>
         )
       }}>
         <Icon subject={file} />
         <TextView right='prev() 5' markupEnabled>
-          <span font='bold 20px dubai '>{file.title}</span><br />
-          <span font='16px dubai'>{file.subject}</span>
+          <span font='bold 20px cairo '>{file.title}</span><br />
+          <span font='16px cairo'>{file.subject}</span>
         </TextView>
         <Composite left id='cool' cornerRadius={14} width='28' height='28' background='#333431'>
-          <TextView font='16px dubai' centerY centerX textColor='white' text={file.questionlist.length} />
+          <TextView font='16px cairo' centerY centerX textColor='white' text={file.questionlist.length} />
         </Composite>
 
-        <TextView visible={file.cycle.length > 3 ? true : false} font='16px dubai' left top='#cool 10' textColor='#FD4659' text={`دورة ${file.cycle}`} />
+        <TextView visible={file.cycle.length > 3 ? true : false} font='16px cairo' left top='#cool 10' textColor='#FD4659' text={`دورة ${file.cycle}`} />
       </Composite>
     )
   }
@@ -223,7 +223,7 @@ function Home() {
 
       return (
         <Composite highlightOnTouch background='#333431' cornerRadius={16} padding={10} onTap={() => filter_subjects(hash_subject)} >
-          <TextView text={hash_subject} textColor='white' markupEnabled font='15px dubai' />
+          <TextView text={hash_subject} textColor='white' markupEnabled font='15px cairo' />
         </Composite>
       )
     }
@@ -237,51 +237,55 @@ function Home() {
     filtred_subject.forEach(subject => { $('Files > Stack').only().append(handle_files(subject)) });
   }
   async function add_file() {
+    const approved = ['text/plain', 'application/octet-stream']
     try {
-      let file = await fs.openFile({ type: 'text/plain', quantity: 'single' });
-      let file_buffer = await file[0].arrayBuffer();
-      let file_string = String.fromCharCode.apply(null, new Uint8Array(file_buffer));
-      let en = crypto.AES.decrypt(file_string, "nabeel adnan ali nizam");
-      let de = JSON.parse(en.toString(crypto.enc.Utf8));
-      if (!db.some(file => file.title == de.title)) {
-        db.unshift(de);
-        // push paid to database
-        if (de.paid) {
-          let bank = find(paid, (o) => o.code == de.code);
-          if (bank !== undefined) {
-            if (bank.paid == false) {
-              de.paid = false
+      let file = await fs.openFile({ quantity: 'single' });
+      if (approved.includes(file[0].type)) {
+        let file_buffer = await file[0].arrayBuffer();
+        let file_string = String.fromCharCode.apply(null, new Uint8Array(file_buffer));
+        let en = crypto.AES.decrypt(file_string, "nabeel adnan ali nizam");
+        let de = JSON.parse(en.toString(crypto.enc.Utf8));
+        if (!db.some(file => file.title == de.title)) {
+          db.unshift(de);
+          // push paid to database
+          if (de.paid) {
+            let bank = find(paid, (o) => o.code == de.code);
+            if (bank !== undefined) {
+              if (bank.paid == false) {
+                de.paid = false
+              }
             }
+            let paid_profile = {
+              subject: de.subject,
+              ID: hash.encode(random(10000, 1000000)),
+              paid: de.paid,
+              code: de.code
+            }
+
+            paid.push(paid_profile)
+            paid = uniqBy(paid, "code");
+            secureStorage.setItem('paid', JSON.stringify(paid))
           }
-          let paid_profile = {
-            subject: de.subject,
-            ID: hash.encode(random(10000, 1000000)),
-            paid: de.paid,
-            code: de.code
+          // update the UI and database
+          write().then(() => show_snackbar('تمت الإضافة بنجاح', success, '😃'));
+          // write();
+          $('Files > #main').only().children().dispose();
+          db.forEach(file => $('Files > Stack').only().append(handle_files(file)));
+
+          $('Subjects > Row').only().children().dispose();
+          [...new Set(map(db, 'subject'))].forEach(subject => $('Subjects > Row').only().append(handle_subjects(subject)));
+
+          // update the UI for achivement
+          $('Home  > Stack > #subjects_name').set({ visible: true });
+
+          if (db.length > 0) {
+            $('Home > #placeholder').set({ visible: false })
           }
-
-          paid.push(paid_profile)
-          paid = uniqBy(paid, "code");
-          secureStorage.setItem('paid', JSON.stringify(paid))
+        } else {
+          show_snackbar('الملف موجود سلفاً ', warrning, '😕')
         }
-        // update the UI and database
-        write().then(() => show_snackbar('تمت الإضافة بنجاح', success, '😃'));
-        // write();
-        $('Files > #main').only().children().dispose();
-        db.forEach(file => $('Files > Stack').only().append(handle_files(file)));
-
-        $('Subjects > Row').only().children().dispose();
-        [...new Set(map(db, 'subject'))].forEach(subject => $('Subjects > Row').only().append(handle_subjects(subject)));
-
-        // update the UI for achivement
-        $('Home  > Stack > #subjects_name').set({ visible: true });
-
-        if (db.length > 0) {
-          $('Home > #placeholder').set({ visible: false })
-        }
-      } else {
-        show_snackbar('الملف موجود سلفاً ', warrning, '😕')
       }
+      show_snackbar('الملف المختار غير مدعوم', error, '😕');
     } catch (error) {
       show_snackbar('لم يتم اختيار ملف', warrning, '😕');
     }
@@ -322,18 +326,18 @@ function Home() {
     <Page background='#fffffe'>
       <Stack stretchX stretchY right={15} left={15} top={15} bottom={5} spacing={10}>
         <Toolbar />
-        <TextView id='subjects_name' visible={db.length == 0 ? false : true} text='المقررات:' font='16px dubai' right />
+        <TextView id='subjects_name' visible={db.length == 0 ? false : true} text='المقررات:' font='16px cairo' right />
         <Subjects />
         <Files />
 
       </Stack>
-      <Snackbar />
       <Add />
+      <Snackbar />
       <Composite id='placeholder' padding={16} visible={db.length == 0 ? true : false} stretchX stretchY top='8%'>
-        <TextView right font='16px dubai' text='Telegram: @Balsam_app 👆' onTap={() => app.launch('https://t.me/Balsam_app')} />
-        <TextView left font='bold 16px dubai' textColor={success} text='نسبة إنجازك 👆' />
+        <TextView right font='16px cairo' text='Telegram: @Balsam_app 👆' onTap={() => app.launch('https://t.me/Balsam_app')} />
+        <TextView left font='bold 16px cairo' textColor={success} text='نسبة إنجازك 👆' />
 
-        <TextView text='✨ بلسم يتمنى لك يوماً جميلاً ✨' font='20px dubai' center />
+        <TextView text='✨ بلسم يتمنى لك يوماً جميلاً ✨' font='20px cairo' center />
 
       </Composite>
     </Page>
@@ -353,26 +357,25 @@ function Exam(file) {
   }
 
   let the_question = info.questionlist[score];
-
   let Question = () => {
     return (
-      <TextView id='question' left={1} right={1} top={1} font='bold 20px dubai' > {the_question.question}</TextView>
+      <TextView id='question' left={1} right={1} top={1} font='bold 20px cairo' > {the_question.question}</TextView>
     )
   }
   let Choices = () => {
     return (
       <Stack stretchX spacing={16}>
         <Composite id='b0' left={1} right={1} background='#D7D8D2' cornerRadius={5} padding={10} highlightOnTouch onTap={() => check(0)}>
-          <TextView id='a1' left={1} right={1} top={1} right text={the_question.choices[0]} font='bold 16px dubai' />
+          <TextView id='a1' left={1} right={1} top={1} right text={the_question.choices[0]} font='bold 16px cairo' />
         </Composite>
         <Composite id='b1' left={1} right={1} background='#D7D8D2' cornerRadius={5} padding={10} highlightOnTouch onTap={() => check(1)}>
-          <TextView id='a2' left={1} right={1} top={1} right text={the_question.choices[1]} font='bold 16px dubai' />
+          <TextView id='a2' left={1} right={1} top={1} right text={the_question.choices[1]} font='bold 16px cairo' />
         </Composite>
         <Composite id='b2' left={1} right={1} background='#D7D8D2' cornerRadius={5} padding={10} highlightOnTouch onTap={() => check(2)}>
-          <TextView id='a3' left={1} right={1} top={1} right text={the_question.choices[2]} font='bold 16px dubai' />
+          <TextView id='a3' left={1} right={1} top={1} right text={the_question.choices[2]} font='bold 16px cairo' />
         </Composite>
         <Composite id='b3' left={1} right={1} background='#D7D8D2' cornerRadius={5} padding={10} highlightOnTouch onTap={() => check(3)}>
-          <TextView id='a4' left={1} right={1} top={1} right text={the_question.choices[3]} font='bold 16px dubai' />
+          <TextView id='a4' left={1} right={1} top={1} right text={the_question.choices[3]} font='bold 16px cairo' />
         </Composite>
       </Stack>
     )
@@ -380,24 +383,24 @@ function Exam(file) {
   let Snackbar = () => {
     return (
       <Composite right={10} left={10} visible={false} stretchX padding={10} cornerRadius={3} background='#048243' bottom={16} elevation={5}>
-        <TextView id='text' right textColor='white' text='notification' font='bold 16px dubai' />
-        <TextView id='icon' left text='✅' font='bold 16px dubai' />
+        <TextView id='text' right text='notification' font='bold 16px cairo' />
+        <TextView id='icon' left text='✅' font='bold 16px cairo' />
       </Composite>
     )
   }
   let Footer = () => {
     return (
       <Composite bottom={50} padding={16} stretchX right>
-        <TextView visible={false} id='explain' right bottom='next() 5' text='للاطلاع على شرح السؤال اسحب للأعلى 👆' font=' 15px dubai' textColor='#455A64' />
-        <TextView visible={false} id='swipe_next' right text='للانتقال للسؤال التالي اسحب باتجاه اليمين 👉' font=' 15px dubai' textColor='#455A64' />
+        <TextView visible={false} id='explain' right text='للاطلاع على شرح السؤال اسحب للأعلى 👆' font=' 15px cairo' textColor='#455A64' />
+        <TextView visible={false} id='swipe_next' right top='prev() 5' text='للانتقال للسؤال التالي اسحب باتجاه اليمين 👉' font=' 15px cairo' textColor='#455A64' />
       </Composite>
     )
   }
   let BottomSheet = () => {
     return (
       <Composite visible={false} bottom={0} padding={10} background='#F4D7D7' stretchX >
-        <TextView id='explain' left={1} right={1} text='explanation' font='bold 21px dubai' />
-        <TextView top='prev() 1' bottom centerX text='اسحب للأسفل أو اليمين' font='15px dubai' />
+        <TextView id='explain' left={1} right={1} text='explanation' font='bold 21px cairo' />
+        <TextView top='prev() 1' bottom centerX text='اسحب للأسفل أو اليمين' font='15px cairo' />
       </Composite>
     )
   }
@@ -416,7 +419,6 @@ function Exam(file) {
         user_score++;
         $(`Choices > #b${right_index}`).set({ background: '#00C853' });
         $('Footer > #swipe_next').set({ visible: true });
-
         $(ProgressBar).set({ state: 'error' });
 
         if (info.questionlist[score].qexplain.length > 3) {
@@ -432,8 +434,7 @@ function Exam(file) {
     progress_score++;
     wrong_asnwer = false;
     if (score == info.questionlist.length - 1) {
-      $('Footer > #swipe_next').set({ text: 'لقد انتهينا اسحب لليمين ⏩', textColor: success, font: 'bold 20px dubai', layoutData: 'center' });
-
+      $('Footer > #swipe_next').set({ text: 'لقد انتهينا اسحب لليمين ⏩', textColor: success, font: 'bold 20px cairo', layoutData: { centerX: '0', top: 'prev() 5' } });
     }
     if (score == info.questionlist.length) {
       show_result();
@@ -444,7 +445,6 @@ function Exam(file) {
       $(Question).animate(
         { opacity: 1.0, transform: { translationX: 0 } },
         { duration: 500, delay: 0, easing: 'ease-out' });
-
 
       $('Choices > Composite > #a1').set({ text: info.questionlist[score].choices[0] });
       $('Choices > Composite > #a2').set({ text: info.questionlist[score].choices[1] });
@@ -495,7 +495,7 @@ function Exam(file) {
     let ratio = Math.round((100 * right) / length);
     let output = `لديك ${user_score} سؤال خاطئ من أصل ${length} سؤال`;
     if (user_score == 0) {
-      output = '🎉🎉 مبارك جميع الأسئلة صحيحة'
+      output = '🎉🎉 جميع الأسئلة صحيحة'
     }
     let avarage = info.Accuracy;
     avarage.push(ratio);
@@ -522,19 +522,19 @@ function Exam(file) {
           <Composite background={secondary} stretchX padding={16} cornerRadius={16}>
             <TextView right font='45px' text='🎯' />
             <TextView right='prev() 10' markupEnabled  >
-              <span font='20px dubai'>مستوى دقتك:</span> <br />
+              <span font='20px cairo'>مستوى دقتك:</span> <br />
               <span font='40px'>{`${ratio}%`}</span>
             </TextView>
-            <TextView visible={user_score == 0 ? false : true} right='95%' font='bold 16px dubai' top='prev() 10' textColor={user_score == 0 ? success : error} text={output} />
+            <TextView right='95%' font='bold 16px cairo' top='prev() 10' textColor={user_score == 0 ? success : error} text={output} />
           </Composite>
           <Composite background={secondary} stretchX padding={16} cornerRadius={16}>
             <TextView centerY right markupEnabled >
-              <span font='16px dubai'>متوسط الدقة 🌟</span><br />
-              <span font='bold 20px dubai'> {info.subject}  </span>
+              <span font='16px cairo'>متوسط الدقة 🌟</span><br />
+              <span font='bold 20px cairo'> {info.subject}  </span>
             </TextView>
             <TextView left centerY font='bold 35px' text={`${new_avarage}%`} />
           </Composite>
-          <TextView font='20px dubai' centerX text={balsam} />
+          <TextView font='20px cairo' centerX text={balsam} />
         </Stack>
       </Popover>
     )
@@ -546,16 +546,16 @@ function Exam(file) {
       write();
     })
   }
-
   return (
     <Page id='exam'
       onSwipeRight={() => { if (wrong_asnwer) { next_question() } }}
       onSwipeUp={() => { if (wrong_asnwer && info.questionlist[score].qexplain.length > 3) { show_BottomSheet() } }}
       onSwipeDown={() => $(BottomSheet).animate({ opacity: 0, transform: { translationY: +100 } }, { delay: 0, duration: 500, easing: "linear" })}
+      onLongPress={(e) => { if (e.state == 'start') { add_bookmark() } }}
     >
       <ProgressBar tintColor={success} selection={progress_score} stretchX top maximum={info.questionlist.length} />
       <Stack top={30} stretchX padding={16} spacing={10}>
-        <TextView right markupEnabled font='bold 15px dubai' textColor='#455A64'>
+        <TextView right markupEnabled font='bold 15px cairo' textColor='#455A64'>
           <span>{info.subject}</span> / <span>{info.title}</span>
         </TextView>
         <Question />
@@ -571,7 +571,6 @@ function Exam(file) {
 function go_to_exam(file) {
   let nav = $(NavigationView).only();
   nav.append(<Exam data={file} />)
-  firebase.Analytics.logEvent('go_to_exam', { description: 'المستخدم توجه لصفحة الامتحانات' });
 }
 
 function go_to_active(file) {
@@ -586,8 +585,8 @@ function Activate() {
     paid.filter(file => file.paid == true).forEach(file => {
       output.push(
         <Composite stretchX background='#D7D8D2' cornerRadius={15} padding={16} >
-          <TextView right text={file.subject} font='bold 20px dubai' />
-          <Button baseline='prev()' left style='elevate' background={brand} text={file.ID} font='bold 18px dubai' onSelect={() => { share(file) }} />
+          <TextView right text={file.subject} font='bold 20px cairo' />
+          <Button baseline='prev()' left style='elevate' background={brand} text={file.ID} font='bold 18px cairo' onSelect={() => { share(file) }} />
           <TextInput keyboard='number' stretch top='prev() 15' message='أدخل المفتاح' style='underline' onAccept={(ev) => handle_accept(ev, file.ID, file.code)} />
         </Composite>
       )
@@ -602,8 +601,8 @@ function Activate() {
   let Snackbar = () => {
     return (
       <Composite right={10} left={10} visible={false} stretchX padding={10} cornerRadius={3} background='#048243' bottom={16} elevation={5}>
-        <TextView id='text' right text='notification' font='bold 16px dubai' />
-        <TextView id='icon' left text='✅' font='bold 16px dubai' />
+        <TextView id='text' right text='notification' font='bold 16px cairo' />
+        <TextView id='icon' left text='✅' font='bold 16px cairo' />
       </Composite>
     )
   }
@@ -618,7 +617,6 @@ function Activate() {
         db.filter(file => file.code == CODE).forEach(f => f.paid = false);
         write()
         show_snackbar('تم التفعيل بنجاح', success, '😃');
-        firebase.Analytics.logEvent('activate_bank', { description: `قام المستخدم بتفعيل بنك ${CODE}` });
         // go_home()
       } else {
         show_snackbar('المفتاح غير مناسب', error, '😐')
@@ -648,8 +646,8 @@ function Activate() {
   return (
     <Page id='activate'>
       <Stack stretchX stretchY right={15} left={15} top={15} bottom={15} spacing={10}>
-        <TextView right text='قائمة تفعيل الملفات' font='bold 21px dubai' />
-        <TextView font='14px dubai' markupEnabled right={1} left={0} bottom={1}>
+        <TextView right text='قائمة تفعيل الملفات' font='bold 21px cairo' />
+        <TextView font='14px cairo' markupEnabled right={1} left={0} bottom={1}>
           <span>لتفعيل بنك مدفوع لبلسم نتبع الخطوات التالية:</span> <br />
           <span>1️⃣ اشتر من فضلك كود التفعيل من المكتبة المعتمدة</span> <br />
           <span>2️⃣ ارسل رمز المادة والكود الذي اشتريته للمطور عن طريق الضغط على الرمز يسار المادة Balsam_dev@</span> <br />
@@ -669,3 +667,5 @@ function cal_achivement() {
   let solved = db.filter(file => file.numOfQuiz > 0).forEach(file => num_solved.push(file.questionlist.length));
   return Math.round((100 * sum(num_solved)) / sum(num_total))
 }
+
+
