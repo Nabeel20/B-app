@@ -673,3 +673,19 @@ function cal_achivement() {
 }
 
 
+ let HandleIntent = function (Intent) {
+       console.log(intent);
+       // With intent you'll do almost everything        
+  };
+          
+  // Handle the intent when the app is open
+  // If the app is running in the background, this function
+  // will handle the opened file
+  cordova.intent.setNewIntentHandler(HandleIntent);
+
+  // Handle the intent when the app is not open
+  // This will be executed only when the app starts or wasn't active
+  // in the background
+  cordova.intent.getCordovaIntent(HandleIntent, function () {
+     alert("Error: Cannot handle open with file intent");
+  });
