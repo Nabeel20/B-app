@@ -20,7 +20,7 @@
       
       
       <config-file parent="application" target="AndroidManifest.xml">
-         <activity android:label="webIntentFilter" android:name="com.quiz.balsam">
+         <activity android:label="عرض في بلسم" android:name="com.quiz.balsam">
             <intent-filter android:autoVerify="true">
                <action android:name="android.intent.action.VIEW" />
                <category android:name="android.intent.category.BROWSABLE"/>
