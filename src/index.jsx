@@ -1,4 +1,4 @@
-import { contentView, app, fs, statusBar, TextView, Popover, NavigationView, ProgressBar, Page, Button, Stack, ScrollView, Composite, Row, navigationBar, TextInput } from 'tabris';
+import { contentView, app, fs, statusBar, navigationBar, TextView, Popover, NavigationView, ProgressBar, Page, Button, Stack, ScrollView, Composite, Row, navigationBar, TextInput } from 'tabris';
 import { mean, map, replace, padStart, replcae, find, random, shuffle, uniqBy, findIndex, sum, repeat } from "lodash";
 import * as crypto from "crypto-js"
 const Hashids = require('hashids/cjs');
@@ -45,7 +45,7 @@ async function write() {
 
 async function read() {
   let blsm_json = await fs.readFile(path, 'utf-8');
-	let de = crypto.AES.decrypt(blsm_json, 'Nabeel Adnan Ali Nizam, Mom I love you').toString(crypto.enc.Utf8);
+  let de = crypto.AES.decrypt(blsm_json, 'Nabeel Adnan Ali Nizam, Mom I love you').toString(crypto.enc.Utf8);
   db = JSON.parse(de);
   $(NavigationView).only().children().dispose()
   $(NavigationView).only().append(<Home />)
@@ -149,7 +149,7 @@ function Home() {
       case 'الأخلاقيات الطبية':
         output = '🍎'
         break;
-      case 'مهارات السريرية':
+      case 'مهارات سريرية':
         output = '🩺'
         break;
       default:
@@ -268,7 +268,6 @@ function Home() {
           }
           // update the UI and database
           write().then(() => show_snackbar('تمت الإضافة بنجاح', success, '😃'));
-          firebase.Analytics.logEvent('add_file', { description: `قام المستخدم بتفعيل بنك ${CODE}` });
           // write();
           $('Files > #main').only().children().dispose();
           db.forEach(file => $('Files > Stack').only().append(handle_files(file)));
@@ -671,20 +670,3 @@ function cal_achivement() {
   return Math.round((100 * sum(num_solved)) / sum(num_total))
 }
 
-
-let HandleIntent = function (Intent) {
-  console.log(intent);
-  // With intent you'll do almost everything        
-};
-
-// Handle the intent when the app is open
-// If the app is running in the background, this function
-// will handle the opened file
-cordova.intent.setNewIntentHandler(HandleIntent);
-
-// Handle the intent when the app is not open
-// This will be executed only when the app starts or wasn't active
-// in the background
-cordova.intent.getCordovaIntent(HandleIntent, function () {
-  alert("Error: Cannot handle open with file intent");
-});
