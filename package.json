@@ -1,11 +1,11 @@
 {
-  "main": "dist/app.js",
+  "main": "dist",
   "private": true,
   "scripts": {
     "test": "npm run build && npm run lint",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
-    "build": "webpack",
-    "watch": "webpack -w",
+    "build": "tsc -p .",
+    "watch": "tsc -p . -w --preserveWatchOutput --inlineSourceMap",
     "start": "tabris serve -a -w"
   },
   "dependencies": {
@@ -19,10 +19,8 @@
     "@typescript-eslint/parser": "^4.7.0",
     "eslint": "^7.13.0",
     "eslint-plugin-react": "^7.21.5",
-    "javascript-obfuscator": "^2.9.3",
     "typescript": "~3.8.3",
     "webpack": "^5.6.0",
-    "webpack-cli": "^4.2.0",
-    "webpack-obfuscator": "^3.1.0"
+    "webpack-cli": "^4.2.0"
   }
 }
