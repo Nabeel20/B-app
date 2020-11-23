@@ -1,5 +1,5 @@
 {
-  "main": "dist",
+  "main": "dist/app.js",
   "private": true,
   "scripts": {
     "test": "npm run build && npm run lint",
