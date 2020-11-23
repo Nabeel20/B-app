@@ -7,13 +7,14 @@
    <plugin name="cordova-plugin-intent" spec="^0.1.2" />
    <platform name="android">
       <preference name="SplashMaintainAspectRatio" value="true"/>
-      <preference name="SplashScreenDelay" value="1500"/>
+      <preference name="SplashScreenDelay" value="2000"/>
       <icon density="ldpi" src="res/icon/ldpi.png" />
       <icon density="mdpi" src="res/icon/mdpi.png" />
       <icon density="hdpi" src="res/icon/hdpi.png" />
       <icon density="xhdpi" src="res/icon/xhdpi.png" />
       <icon density="xxhdpi" src="res/icon/xxhdpi.png" />
       <icon density="xxxhdpi" src="res/icon/xxxhdpi.png" />
+      
       <splash density="port-ldpi" src="res/splash/splash-port-ldpi.png"/>
       <splash density="port-mdpi" src="res/splash/splash-port-mdpi.png"/>
       <splash density="port-hdpi" src="res/splash/splash-port-hdpi.png"/>
@@ -25,24 +26,5 @@
       <preference name="Orientation" value="portrait" />
       <resource-file src="res/theme.xml" target="app/src/main/res/values/theme.xml" />
       <preference name="Theme" value="@style/Theme.Balsam" />
-      
-      <config-file parent="application" target="AndroidManifest.xml">
-         <activity android:label="عرض في بلسم" android:name="com.quiz.balsam">
-            <intent-filter android:autoVerify="true">
-               <action android:name="android.intent.action.VIEW" />
-               <category android:name="android.intent.category.BROWSABLE"/>
-               <category android:name="android.intent.category.DEFAULT" />
-               <data android:scheme="file" />
-               <data android:scheme="content" />
-               <data android:scheme="http" />
-               <data android:scheme="https" />
-               <data android:scheme="ftp" />
-               <data android:host="*" />
-               <data android:pathPattern=".*\\.quiz" />
-               <data android:mimeType="*/*" />
-            </intent-filter>
-         </activity>
-         
-      </config-file>
    </platform>
 </widget>
