@@ -2,7 +2,7 @@ var WebpackObfuscator = require('webpack-obfuscator');
 
 module.exports = {
     // Make sure the entry file is correct for your app:
-    entry: './src/index.jsx',
+    entry: './dist/index.js',
     externals: ['tabris', 'tabris-decorators', 'crypto-js', 'hashids', 'lodash'],
     output: {
         libraryTarget: 'commonjs2',
