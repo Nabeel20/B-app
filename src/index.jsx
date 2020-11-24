@@ -669,14 +669,13 @@ function cal_achivement() {
   let solved = db.filter(file => file.numOfQuiz > 0).forEach(file => num_solved.push(file.questionlist.length));
   return Math.round((100 * sum(num_solved)) / sum(num_total))
 }
-/*
-cordova.fileAssociation.getAssociatedData(null,function(success){
-  try {
-    if(success !== null){
-      console.log('this is success: ' + success)
-    }
-  } catch (error) {
-    console.log('Error even success?: ' + error)
-  }
-},function(error){console.log('Failed: ' + error)});
-*/
+
+cordova.intent.getCordovaIntent(function (Intent) {
+  console.log('this is success: ' + Intent)
+}, function () {
+  console.log('Error');
+});
+
+cordova.intent.setNewIntentHandler(function (Intent) {
+  console.info(Intent);
+});
