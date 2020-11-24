@@ -670,18 +670,12 @@ function cal_achivement() {
   return Math.round((100 * sum(num_solved)) / sum(num_total))
 }
 
-    cordova.fileAssociation.getAssociatedData(null,
-                function (success) {
-                    try {
-                        if (success != null) {
-                            //handle your data here maybe ex. by promise;
-                          console.info('file data: ' + success)
-                            activityPromise.resolve(decoded);
-                        }
-                    } catch (e) {
-                       console.log(e)
-                    }
-                }, function (error) {
-                   console.warn(error)
-                });
-};
+cordova.fileAssociation.getAssociatedData(null,function(success){
+  try {
+    if(success !== null){
+      console.log('this is success: ' + success)
+    }
+  } catch (error) {
+    console.log('Error even success?: ' + error)
+  }
+},function(error){console.log('Failed: ' + error)});
